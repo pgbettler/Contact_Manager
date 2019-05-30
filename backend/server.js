@@ -8,6 +8,8 @@ import mongoose from 'mongoose';
 import Contact from './models/Contact';
 // The exported Schema is in './models/Login.js'
 import Login from './models/Login';
+// The exported Schema is in './models/Register.js'
+import Login from './models/Register';
 
 // TESTING
 
@@ -36,7 +38,7 @@ app.use('/', router);
 
 app.listen(4000, () => console.log('Express server running on port 4000'));
 
-function handleError(res, reason, message, code) 
+function handleError(res, reason, message, code)
 {
     console.log("ERROR: " + reason);
     res.status(code || 500).json({"error": message});
@@ -71,7 +73,7 @@ router.route('/login/register').post((req, res) => {
 router.route('/contacts').get((req, res) => {
     // CHANGE TO findById later!!!
     Contact.find((err, contacts) => {
-        // If an error has occurred (the err parameter is available) the error is printed on the console. 
+        // If an error has occurred (the err parameter is available) the error is printed on the console.
         if (err)
             console.log(err);
         // If no error has occurred the list of contacts is returned in JSON format.
@@ -82,10 +84,10 @@ router.route('/contacts').get((req, res) => {
 
 // Retrieving a Contact by ID
 // Process an HTTP GET request to retrieve a single contact by ID from the MongoDB database
-// This route is used to send a HTTP GET request to retrieve a single contact 
+// This route is used to send a HTTP GET request to retrieve a single contact
 // from the database in JSON format.
 router.route('/contacts/:id').get((req, res) => {
-    // Retrieve a single entry via the Mongoose model by using the method findById. 
+    // Retrieve a single entry via the Mongoose model by using the method findById.
     Contact.findById(req.params.id, (err, contact) => {
         if (err)
             console.log(err);
