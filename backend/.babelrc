@@ -1,0 +1,5 @@
+{
+    // In order to be able to use ES6 features in our Node.js
+    // code we need to set up the Babel compiler for our project.
+    "presets": ["@babel/preset-env"]
+}

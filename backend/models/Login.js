@@ -9,6 +9,17 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 let Login = new Schema({
+    // USER ID not already!!!
+    //{}
+    
+    firstName:
+    {
+        type: String
+    },
+    lastName:
+    {
+        type: String
+    },
     username:
     {
         type: String

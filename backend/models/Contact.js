@@ -11,6 +11,8 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 let Contact = new Schema({
+    // Add USER ID LATER!!!
+    // userId: type: Int32
     firstName:
     {
         type: String
@@ -21,7 +23,7 @@ let Contact = new Schema({
     },
     phoneNumber:
     {
-        type: Number
+        type: String
     },
     emailAddress:
     {

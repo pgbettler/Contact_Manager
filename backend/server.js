@@ -9,9 +9,6 @@ import Contact from './models/Contact';
 // The exported Schema is in './models/Login.js'
 import Login from './models/Login';
 
-// TESTING
-
-
 const app = express();
 const router = express.Router();
 mongoose.Promise = global.Promise;
