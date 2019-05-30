@@ -9,14 +9,20 @@ import Contact from './models/Contact';
 // The exported Schema is in './models/Login.js'
 import Login from './models/Login';
 
+// TESTING
+
+
 const app = express();
 const router = express.Router();
-
+mongoose.Promise = global.Promise;
 app.use(cors());
 app.use(bodyParser.json());
 
 // Fill in with the string that containing the URL to the MongoDB database instance.
-mongoose.connect('mongodb://[server]/contacts'); // Come back to fill in the string later!!!
+mongoose.connect('mongodb://localhost:27017/contactManagement', { useNewUrlParser: true }).then(
+    () => {console.log('Database is connected') },
+    err => { console.log('Cannot connect to the database'+ err)}
+  ); // Come back to fill in the string later!!!
 
 const connection = mongoose.connection;
 
@@ -29,6 +35,12 @@ connection.once('open', () =>
 app.use('/', router);
 
 app.listen(4000, () => console.log('Express server running on port 4000'));
+
+function handleError(res, reason, message, code) 
+{
+    console.log("ERROR: " + reason);
+    res.status(code || 500).json({"error": message});
+}
 
 // Following are API endpoints for Login page
 
