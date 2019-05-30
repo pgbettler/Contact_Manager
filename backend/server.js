@@ -1,3 +1,4 @@
+//Test Comment - Justin Wu
 // Implementing Node.js & Express Server
 import express from 'express';
 import cors from 'cors';
@@ -59,7 +60,7 @@ router.route('/login/register').post((req, res) => {
 router.route('/contacts').get((req, res) => {
     // CHANGE TO findById later!!!
     Contact.find((err, contacts) => {
-        // If an error has occurred (the err parameter is available) the error is printed on the console. 
+        // If an error has occurred (the err parameter is available) the error is printed on the console.
         if (err)
             console.log(err);
         // If no error has occurred the list of contacts is returned in JSON format.
@@ -70,10 +71,10 @@ router.route('/contacts').get((req, res) => {
 
 // Retrieving a Contact by ID
 // Process an HTTP GET request to retrieve a single contact by ID from the MongoDB database
-// This route is used to send a HTTP GET request to retrieve a single contact 
+// This route is used to send a HTTP GET request to retrieve a single contact
 // from the database in JSON format.
 router.route('/contacts/:id').get((req, res) => {
-    // Retrieve a single entry via the Mongoose model by using the method findById. 
+    // Retrieve a single entry via the Mongoose model by using the method findById.
     Contact.findById(req.params.id, (err, contact) => {
         if (err)
             console.log(err);
