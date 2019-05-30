@@ -1,37 +1,46 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { MatToolbarModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreateComponent } from './components/create/create.component';
+import { EditComponent } from './components/edit/edit.component';
+import { ListComponent } from './components/list/list.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
-import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
-  import { ContactsmenuComponent } from './viewcontacts/contactsmenu/contactsmenu.component';
-    import { SearchcontactsComponent } from './viewcontacts/contactsmenu/searchcontacts/searchcontacts.component';
-  import { AddcontactComponent } from './viewcontacts/addcontact/addcontact.component';
-  import { ContactdetailsComponent } from './viewcontacts/contactdetails/contactdetails.component';
-    import { EditcontactComponent } from './viewcontacts/contactdetails/editcontact/editcontact.component';
-    import { DeletecontactComponent } from './viewcontacts/contactdetails/deletecontact/deletecontact.component';
+// Each Routes object consists of two properties: path and component. 
+// This is connecting a URL extension (like ‘create’) to a component (CreateComponent).
+const routes: Routes = [
+  // a redirect is configured from the default application route to the route 
+  // displaying content from ListComponent.
+  { path: '', redirectTo: '/list', pathMatch: 'full' }, // change '/list' to '/login' later!!!
+  { path: 'create', component: CreateComponent },
+  { path: 'edit/:id', component: EditComponent },
+  { path: 'list', component: ListComponent }, // change 'list' to 'list/:id' later!!!
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
+];
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
+    CreateComponent,
+    EditComponent,
+    ListComponent,
     LoginComponent,
-    SignupComponent,
-    AddcontactComponent,
-    ViewcontactsComponent,
-    ContactsmenuComponent,
-    ContactdetailsComponent,
-    SearchcontactsComponent,
-    EditcontactComponent,
-    DeletecontactComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
