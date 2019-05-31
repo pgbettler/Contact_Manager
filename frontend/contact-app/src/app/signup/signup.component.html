@@ -1,3 +1,55 @@
-<p>
-  signup works!
-</p>
+<div class="card">
+  <div class="container">
+  <h1>Register Your Narwhal Network</h1>
+
+  <p></p>
+  <form #loginform = "ngForm">
+      <div class="form-group">
+          <label for="name">First Name</label>
+          <input type="text" class="form-control" id="firstName" required
+          [(ngModel)]="model.firstName" name="firstName"
+          #firstName="ngModel">
+        </div>
+        <div [hidden]="firstName.valid || firstName.pristine"
+        class="alert alert-danger">
+        First name is required
+      </div>
+    <div class="form-group">
+          <label for="name">Last Name</label>
+          <input type="text" class="form-control" id="lastName" required
+          [(ngModel)]="model.lastName" name="lastName"
+          #lastName="ngModel">
+        </div>
+        <div [hidden]="username.valid || username.pristine"
+        class="alert alert-danger">
+        Last Name is required
+        </div>
+    <div class="form-group">
+      <label for="name">Username</label>
+      <input type="text" class="form-control" id="username" required
+      [(ngModel)]="model.username" name="username"
+      #username="ngModel">
+    </div>
+    <div [hidden]="username.valid || username.pristine"
+    class="alert alert-danger">
+    Username is required
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Password</label>
+      <input type="text" class="form-control" id="password" required
+      [(ngModel)]="model.password" name="password"
+      #password="ngModel">
+    </div>
+    <div [hidden]="password.valid || password.pristine"
+    class="alert alert-danger">
+    Password is required
+    </div>
+
+    <p>Already registered? Log in <a routerLink="/">here</a></p>
+
+    <button type="submit" class="btn btn-success">Register</button>
+
+  </form>
+  </div>
+</div>

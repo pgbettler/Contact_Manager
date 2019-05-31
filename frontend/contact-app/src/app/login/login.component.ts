@@ -1,24 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { User } from '../user';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor() { }
-
-  model = new User('name', 'username', 'password');
+  model = new User('firstName', 'lastName', 'username', 'password');
 
   submitted = false;
 
   onSubmit() { this.submitted = true; }
-
-  ngOnInit() {
-  }
-
 
   get diagnostic() { return JSON.stringify(this.model); }
 

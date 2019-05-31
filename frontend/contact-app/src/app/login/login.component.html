@@ -1,18 +1,35 @@
-<div class="container">
+<div class="card">
+  <div class="container">
   <h1>Login</h1>
+
+  <p></p>
   <form #loginform = "ngForm">
     <div class="form-group">
       <label for="name">Username</label>
       <input type="text" class="form-control" id="username" required
-      [(ngModel)]="model.name" name="name">
+      [(ngModel)]="model.username" name="username"
+      #username="ngModel">
+    </div>
+    <div [hidden]="username.valid || username.pristine"
+    class="alert alert-danger">
+    Username is required
     </div>
 
     <div class="form-group">
       <label for="alterEgo">Password</label>
-      <input type="text" class="form-control" id="password" required>
+      <input type="text" class="form-control" id="password" required
+      [(ngModel)]="model.password" name="password"
+      #password="ngModel">
     </div>
+    <div [hidden]="password.valid || password.pristine"
+    class="alert alert-danger">
+    Password is required
+    </div>
+
+    <p>Not registered? Sign up <a routerLink="signup">here</a></p>
 
     <button type="submit" class="btn btn-success">Submit</button>
 
   </form>
+  </div>
 </div>

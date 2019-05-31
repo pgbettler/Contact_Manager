@@ -1,25 +1,49 @@
-h1 {
-    color: white;
-}
-nav {
-    justify-self: right;
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 40px;
+.topnav {
     overflow: hidden;
 }
 
-li {
-    float: left;
-    font-size: 18px;
-    color: white;
+.logoimage {
+  padding: 0px 300px 500px 0px;
+}
+.topnav:hover {
+  transition: .5s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-li a {
-    padding : 1.5em;
-    text-transform: uppercase;
-    font-size: .8em;
+/* Style the links inside the navigation bar */
+.topnav h1 {
+  float: left;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  font-size: 40px;
+}
+a {
     color: white;
+    text-decoration: none;
+}
+
+/* Change the color of links on hover */
+a:hover {
+  color: whitesmoke;
+}
+
+h1:hover {
+  color: whitesmoke;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  color: white;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+  padding: 30px 80px;
+
+}
+.topnav-right a {
+    font-size: 30px;
+    padding: 14px;
 }

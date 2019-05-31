@@ -1,0 +1,10 @@
+.image{
+    height:100vh; background-size:cover; width:auto;
+    background-image:url('../assets/images/underwater.jpg');
+    background-position:50% 50%;
+    background-attachment: fixed;
+  }
+
+section {
+    height: 100%;
+}

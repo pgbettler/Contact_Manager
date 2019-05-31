@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -15,6 +16,9 @@ import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
   import { ContactdetailsComponent } from './viewcontacts/contactdetails/contactdetails.component';
     import { EditcontactComponent } from './viewcontacts/contactdetails/editcontact/editcontact.component';
     import { DeletecontactComponent } from './viewcontacts/contactdetails/deletecontact/deletecontact.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +37,8 @@ import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

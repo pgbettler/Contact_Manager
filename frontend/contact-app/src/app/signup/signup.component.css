@@ -1,0 +1,13 @@
+.card {
+    height: 100%;
+    margin-bottom: 30%;
+}
+
+div.container {
+    height: 10em;
+    position: relative;
+    justify-content: center }
+div.container button {
+    position: relative;
+    justify-content: center
+}
