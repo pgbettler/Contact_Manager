@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
 import { ContactService } from '../../contact.service';
+// added UserService
+import { UserService } from '../../user.service';
+
 
 @Component({
   selector: 'app-edit',
@@ -9,7 +12,7 @@ import { ContactService } from '../../contact.service';
 })
 export class EditComponent implements OnInit {
 
-  constructor(private contactService: ContactService, private router: Router) { }
+  constructor(private contactService: ContactService, private router: Router, private UserService: UserService) { }
 
   ngOnInit() {
   }

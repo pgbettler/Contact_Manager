@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-//import { MatToolbarModule } from '@angular/material';
+// imported HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
+
+import { MatToolbarModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
 // Including Material Design Components
-import { MatToolbarModule,
+  import { MatToolbarModule,
   MatFormFieldModule, 
   MatInputModule, 
   MatOptionModule, 
@@ -27,8 +30,9 @@ import { MatToolbarModule,
   MatSnackBarModule } from '@angular/material';
 
 
-// Adding a Service
+// Adding needed services
 import { ContactService } from './contact.service';
+import { UserService } from './user.service';
 
 // Each Routes object consists of two properties: path and component. 
 // This is connecting a URL extension (like ‘create’) to a component (CreateComponent).
@@ -68,11 +72,12 @@ const routes: Routes = [
     MatCardModule,
     MatTableModule,
     MatDividerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule  //added import
   ],
   providers: [
-    // This is needed to be able to use ContactService in the component’s of our application.
-    ContactService],
+    // This is needed to be able to use ContactService and UserService in the component’s of our application.
+    ContactService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
-import { MatTableDataSource } from '@angular/material';
+//import { MatTableDataSource } from '@angular/material';
 
 import { Contact } from '../../contact.model';
 import { ContactService } from '../../contact.service';
 import { EditcontactComponent } from 'src/app/viewcontacts/contactdetails/editcontact/editcontact.component';
+// added UserService
+import { UserService } from '../../user.service';
+
 
 @Component({
   selector: 'app-list',
@@ -15,8 +18,8 @@ export class ListComponent implements OnInit {
 
   contacts: Contact[];
   displayedColumns = ['firstName', 'lastName', 'phoneNumber', 'emailAddress'];
-
-  constructor(private contactService: ContactService, private router: Router) { }
+// added UserService for construcor
+  constructor(private contactService: ContactService, private router: Router, private UserService: UserService) { }
 
   ngOnInit() 
   {

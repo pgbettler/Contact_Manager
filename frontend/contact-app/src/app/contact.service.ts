@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContactService {
 
-  uri = 'http://localhost:4000';
+  uri = 'http://localhost:4000'; //should this be 4000 or 4200?
 
   constructor(private http: HttpClient) { }
 
@@ -36,13 +36,13 @@ export class ContactService {
       emailAddress: emailAddress
     };
     // Return a new contact and post it to MongoDB
-    return this.http.post('${this.uri}/contacts/add', contact);
+    return this.http.post(`${this.uri}/contacts/add`, contact);
   }
 
   // Updating Issues
   // To update a existing contact by POST request, and make sure to
   // pass the updated contact object as following.
-  updateContact(firstName, lastName, phoneNumber, emailAddress)
+  updateContact(id, firstName, lastName, phoneNumber, emailAddress)
   {
     const contact = {
       firstName: firstName,
@@ -51,12 +51,12 @@ export class ContactService {
       emailAddress: emailAddress
     };
     // Update this contact to MongoDB
-    return this.http.post('${this.uri}/contacts/updata/${id}', contact)
+    return this.http.post(`${this.uri}/contacts/update/${id}`, contact)
   }
 
   // Deleting Contact
   deleteContact(id)
   {
-    return this.http.get('${this.uri}/contacts/delete/${id}');
+    return this.http.get(`${this.uri}/contacts/delete/${id}`);
   }
 }
