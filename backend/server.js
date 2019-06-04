@@ -55,10 +55,68 @@ router.route('/login/register').post((req, res) => {
 });
 
 // Verify the Login Information
-// Process an HTTP GET request to find the username and the password in the MongoDB database
+
 // I HAVE NO IDEA HOW TO DO THIS!!!
 // Assuming here is a router for login verification.
 
+// Process an HTTP GET request to find the username and the password in the MongoDB database
+// This is to retrieve all users, I do not believe we need this, but included it just in case
+router.route('/Login').get((req,res) => {
+    Login.find((err, Login) => {
+        if(err)
+            console.log(err);
+        else
+            res.json(issues);
+    });
+});
+
+router.route('/Login/:id').get((req, res) => {
+    Login.findById(req.params.id, (err, Login) => {
+        if(err)
+            console.log(err);
+        else
+            res.json(Login);
+    });
+});
+// Adding new User
+router.route('/Login/add').post((req, res) => {
+    let Login = new Login(req.body);
+    Login.save()
+        .then(Login => {
+            res.status(200).json({'Login': 'Added succesfully'});
+        })
+        .catch(err => {
+            res.status(400).send('Failed to create new user');
+        });
+});
+// Update User info -- username and password
+router.route('/Login/update/:id').post((req, res) => {
+    Login.findById(req.params.id, (err, Login) => {
+        if(!Login)
+            return next(new Error('could not find or load user'));
+        else {
+            Login.username = req.body.username;
+            Login.password = req.body.password;
+
+            Login.save().then(Login => {
+                res.json('Update succesful');
+            }).catch(err => {
+                res.status(400).send('Update failed')
+            });
+        }
+    });
+});
+
+// Deleting User
+// Process an HTTP GET request to delete an existing User entry from the MongoDB database
+router.route('/Login/delete/:id').get((req, res) => {
+    Login.findByIdAndRemove({_id: req.params.id}, (err, Login) => {
+        if (err)
+            res.json(err);
+        else
+            res.json('User was removed successfully');
+    });
+});
 
 // Following are API endpoints for Contact page
 
